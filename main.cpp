@@ -5,7 +5,6 @@
 using namespace std;
 int main()
 {
-
 Bitmap image;
 vector <vector <Pixel> > bmp;
 Pixel rgb;
@@ -14,9 +13,10 @@ string filename;
 cout << "What file do you want converted?" << endl;
 cin >> filename;   
         
-//read a file example.bmp and convert it to a pixel matrix
+//read a file example.bmp
 image.open(filename);
 bool validBMP = image.isImage();
+//If input isnt valid prompts for new input
 while(validBMP != true)
     {
     cout<<"It appears something went wrong, please re-enter the file name and make sure it is a 24 bit depth Windows BMP file."<<endl;
@@ -25,7 +25,7 @@ while(validBMP != true)
     image.open(filename);
     validBMP = image.isImage();
     }
-
+//converts the example.bmp into a pixel matri and displays the size
 bmp = image.toPixelMatrix();
 cout <<filename<< "  has been loaded. It is " <<bmp.size()<<" pixelswide and "<<bmp[0].size()<<" pixels high."<<endl;
 
@@ -47,8 +47,6 @@ cout <<filename<< "  has been loaded. It is " <<bmp.size()<<" pixelswide and "<<
         }
 image.fromPixelMatrix(bmp);
 image.save("OldTimey.bmp");
-
-//if the program doesn't work tell the user why and have them re-enter the file name again
 
 return 0;
 }
