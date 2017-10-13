@@ -18,13 +18,14 @@ cin >> filename;
 image.open(filename);
 bool validBMP = image.isImage();
 while(validBMP != true)
-{
-cout<<"It appears something went wrong, please re-enter the file name and make sure it is a 24 bit depth Windows BMP file."<<endl;
-cout<<"What file do you want to convert?"<<endl;
-cin>>filename;
-image.open(filename);
-bool validBMP = image.isImage();
-}
+    {
+    cout<<"It appears something went wrong, please re-enter the file name and make sure it is a 24 bit depth Windows BMP file."<<endl;
+    cout<<"What file do you want to convert?"<<endl;
+    cin>>filename;
+    image.open(filename);
+    validBMP = image.isImage();
+    }
+
 bmp = image.toPixelMatrix();
 cout <<filename<< "  has been loaded. It is " <<bmp.size()<<" pixelswide and "<<bmp[0].size()<<" pixels high."<<endl;
 
@@ -46,7 +47,7 @@ cout <<filename<< "  has been loaded. It is " <<bmp.size()<<" pixelswide and "<<
         }
 image.fromPixelMatrix(bmp);
 image.save("OldTimey.bmp");
-    
+
 //if the program doesn't work tell the user why and have them re-enter the file name again
 
 return 0;
